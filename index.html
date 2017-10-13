@@ -6,72 +6,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/future-styles.css">
     <link href="https://fonts.googleapis.com/css?family=Kumar+One+Outline" rel="stylesheet">
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
 
-    <title>Blackjack</title>
+    <title>Tronjack</title>
 </head>
 
 <body>
-    <!-- 
-    Layout... 
-    1. Create an element for our table  
-    2. make it green  
-    3. Give it a border (white)  
-    4. Create an element for the dealser's hand and layer's hand  
-    5. Create an element for the dealers' total and the players' total  
-    6. Create an element inside each hand for each card (max of 6)  
-    7. make a deal, hit, and stand bottom -->
+    <!-- TOP -->
+    <div id="info-bar-wrapper">
+        <div class="col-sm-12 game-text">
+            Welcome, Sam. Click here -->
+            <!-- Button trigger modal --><button type="button" class="btn-primary btn-lg menu-btn" data-toggle="modal" data-target="#myModal" id="top-btn"></button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Hello Sam. We don't have much time. You must stop Clu by beating him at his own game, Tronjack! To play, you must end up with a hand worth more than Clu's hand. Cards 2 through 10 are worth their face value. Kings, queens, and jacks are each worth 10,
+                            and aces may be used as either 1 or 11. The object for the player is to draw cards totaling closer to 21, without going over, than the dealer's cards. The best total of all is a two-card 21, or a Tronjack.<br>Press
+                            <strong class="text-danger">deal</strong> to deal the cards.<br>Press <strong class="text-danger">hit</strong> to get one card.<br>When you are satisfied with your hand, press <strong class="text-danger">stand</strong> to face
+                            your destiny. Clu will deal to himself. If you and Clu tie <strong class="text-danger">he will still win.</strong>
+                            <strong class="text-danger">He must not get away!  Defeat Clu!</strong>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="d-inline">Play --></p><button type="button" class="btn btn-default menu-btn" data-dismiss="modal"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- INFO BAR - NEW GAME - POT - DEALER MONEY - PLAYER MONEY - -->
+        <div class="col-sm-3">
+            <button class="btn new-game-button main-btn">New</button>
+        </div>
+        <div class="col-sm-3 pot info">
+            Pot: $
+            <span class="pot-total">0</span>
+        </div>
+        <div class="col-sm-3 money info">Clu 2 Money: $
+            <span class="dealer-money">10000000000</span>
+        </div>
+        <div class="col-sm-3 money info">Sam Money: $
+            <span class="player-money">100</span> Sam Bet: <span class="player-bet">0</span>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12 the-table">
-                <div class="row">
-                    <div class="col-sm-12 dealer-hand-wrapper">
-                        <div class="col-sm-2 dealer-total">
-                            Dealer Total: 0
+                <!-- ***********TOP*********** -->
+                <div class="top col-sm-12">
+                    <div class="dealer-hand-wrapper col-sm-12">
+                        <div class="col-sm-2">
+                            <div class="col-sm-12 totals">
+                                Clu 2 Total:
+                                <span class="dealer-total">0</span>
+                            </div>
                         </div>
                         <div class="col-sm-10 dealer-cards">
-                            <!-- This is 10 columns of dealer-hand-wrapper We will divide the 10 columns, into 6, 2 columns 1 for each card -->
-                            <div class="card card-1 col-sm-2"></div>
-                            <div class="card card-2 col-sm-2"></div>
-                            <div class="card card-3 col-sm-2"></div>
-                            <div class="card card-4 col-sm-2"></div>
-                            <div class="card card-5 col-sm-2"></div>
-                            <div class="card card-6 col-sm-2"></div>
+                            <div class="card card-1 col-sm-2">
+                                <img src="images/cards/deck.png " alt="deck ">
+                            </div>
+                            <div class="card card-2 col-sm-2 ">
+                                <img src="images/cards/deck.png " alt="deck ">
+                            </div>
+                            <div class="card card-3 col-sm-2 ">
+                                <img src="images/cards/deck.png " alt="deck ">
+                            </div>
+                            <div class="card card-4 col-sm-2 ">
+                                <img src="images/cards/deck.png " alt="deck ">
+                            </div>
+                            <div class="card card-5 col-sm-2 ">
+                                <img src="images/cards/deck.png " alt="deck ">
+                            </div>
+                            <div class="card card-6 col-sm-2 ">
+                                <img src="images/cards/deck.png" alt="deck ">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 player-hand-wrapper">
-                        <div class="col-sm-2 player-total">
-                            Player Total: 0
+                    <div class="player-hand-wrapper col-sm-12">
+                        <div class="col-sm-2">
+                            <div class="col-sm-12 totals">
+                                Sam Total:
+                                <span class="player-total">0</span>
+                            </div>
                         </div>
                         <div class="col-sm-10 player-cards">
-                            <!-- This is 10 columns of dealer-hand-wrapper We will divide the 10 columns, into 6, 2 columns 1 for each card -->
-                            <div class="card card-1 col-sm-2"></div>
-                            <div class="card card-2 col-sm-2"></div>
-                            <div class="card card-3 col-sm-2"></div>
-                            <div class="card card-4 col-sm-2"></div>
-                            <div class="card card-5 col-sm-2"></div>
-                            <div class="card card-6 col-sm-2"></div>
+                            <div class="card card-1 col-sm-2">
+                                <img src="images/cards/deck.png" alt="deck ">
+                            </div>
+                            <div class="card card-2 col-sm-2 ">
+                                <img src="images/cards/deck.png" alt="deck ">
+                            </div>
+                            <div class="card card-3 col-sm-2">
+                                <img src="images/cards/deck.png" alt="deck ">
+                            </div>
+                            <div class="card card-4 col-sm-2">
+                                <img src="images/cards/deck.png" alt="deck ">
+                            </div>
+                            <div class="card card-5 col-sm-2">
+                                <img src="images/cards/deck.png" alt="deck ">
+                            </div>
+                            <div class="card card-6 col-sm-2">
+                                <img src="images/cards/deck.png" alt="deck ">
+                            </div>
                         </div>
                     </div>
+                    <div class="col-sm-12 magic"></div>
                 </div>
-                <div id="buttons" class="row">
-                    <div class="col-sm-12">
-                        <button class="btn btn-primary deal-button">Deal</button>
+                <!-- ***********BOTTOM*********** -->
+                <div class="bottom col-sm-12">
+                    <div id="play-buttons " class="the-buttons col-sm-12">
+                        <div class="col-sm-2 col-sm-offset-3">
+                            <button class="btn deal-button main-btn">Deal</button>
+                        </div>
+                        <div class="col-sm-2 col-sm-offset-1">
+                            <button class="btn hit-button main-btn">Hit</button>
+                        </div>
+                        <div class="col-sm-2 col-sm-offset-1">
+                            <button class="btn stand-button main-btn">Stand</button>
+                        </div>
                     </div>
-                    <div class="col-sm-12">
-                        <button class="btn btn-danger hit-button">Hit</button>
+                    <div id="bet-buttons " class="the-buttons">
+                        <div class="col-sm-2 col-sm-offset-3">
+                            <button class="btn bet1-button main-btn">Bet 1</button>
+                        </div>
+                        <div class="col-sm-2 col-sm-offset-1">
+                            <button class="btn bet5-button main-btn">Bet 5</button>
+                        </div>
+                        <div class="col-sm-2 col-sm-offset-1">
+                            <button class="btn bet10-button main-btn">Bet 10</button>
+                        </div>
                     </div>
-                    <div class="col-sm-12">
-                        <button class="btn btn-warning stand-button">Stand</button>
+                    <div id="expert-buttons " class="the-buttons">
+                        <div class="col-sm-2 col-sm-offset-3">
+                            <button class="btn double-button main-btn">Double</button>
+                        </div>
+                        <div class="col-sm-2 col-sm-offset-1">
+                            <button class="btn magic-button main-btn">Don't Touch<br>This</button>
+                        </div>
+                        <div class="col-sm-2 col-sm-offset-1">
+                            <button class="btn feeling-lucky-button main-btn">Feeling<br>Lucky?</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
+
+<!-- TODO - add a cool shadow effect -->
+<!-- TODO - add card flip -->
+<!-- TODO - add feeling-lucky functionality -->
+<!-- TODO - on feeling-lucky, there will be a 1% chance to beat clu (take all his money) -->
+<!-- TODO - add flashing color animations to buttons when clicked -->
