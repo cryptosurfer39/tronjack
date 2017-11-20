@@ -1,3 +1,3 @@
-# Blackjack Game
-## Made with Javascript, jQuery, Bootstrap, and CSS
+# Tronjack
+###### A spin on the old card game featuring JavaScript, HTML&CSS
 
